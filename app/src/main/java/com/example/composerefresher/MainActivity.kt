@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -36,9 +37,99 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            ComposeRefresherTheme{
+            ComposeRefresherTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    MessageCard(message = Message(author = "Ben Salcie", message = "You are the new Author"))
+                    Conversation(
+                        messages = arrayListOf(
+                            Message(
+                                author = "Ben Salcie",
+                                message = "You are the new Author"
+                            ),
+                            Message(
+                                author = "Charity Muia",
+                                message = "You are the new Boy Friend"
+                            ),
+                            Message(
+                                author = "Juliana Kenya",
+                                message = "You are the new Boy Artist"
+                            ),
+                            Message(
+                                author = "Juliana Kenya",
+                                message = "You are the new Boy Artist"
+                            ),
+                            Message(
+                                author = "Juliana Kenya",
+                                message = "You are the new Boy Artist"
+                            ),
+                            Message(
+                                author = "Juliana Kenya",
+                                message = "You are the new Boy Artist"
+                            ),
+                            Message(
+                                author = "Juliana Kenya",
+                                message = "You are the new Boy Artist"
+                            ),
+                            Message(
+                                author = "Juliana Kenya",
+                                message = "You are the new Boy Artist"
+                            ),
+                            Message(
+                                author = "Juliana Kenya",
+                                message = "You are the new Boy Artist"
+                            ),
+                            Message(
+                                author = "Juliana Kenya",
+                                message = "You are the new Boy Artist"
+                            )
+                            ,
+                            Message(
+                                author = "Juliana Kenya",
+                                message = "You are the new Boy Artist"
+                            )
+                            ,
+                            Message(
+                                author = "Juliana Kenya",
+                                message = "You are the new Boy Artist"
+                            )
+                            ,
+                            Message(
+                                author = "Juliana Kenya",
+                                message = "You are the new Boy Artist"
+                            )
+                            ,
+                            Message(
+                                author = "Juliana Kenya",
+                                message = "You are the new Boy Artist"
+                            )
+                            ,
+                            Message(
+                                author = "Juliana Kenya",
+                                message = "You are the new Boy Artist"
+                            )
+                            ,
+                            Message(
+                                author = "Juliana Kenya",
+                                message = "You are the new Boy Artist"
+                            )
+                            ,
+                            Message(
+                                author = "Juliana Kenya",
+                                message = "You are the new Boy Artist"
+                            )
+                            ,
+                            Message(
+                                author = "Juliana Kenya",
+                                message = "You are the new Boy Artist"
+                            ),
+                            Message(
+                                author = "Juliana Kenya",
+                                message = "You are the new Boy Artist"
+                            )
+
+
+
+                        )
+                    )
                 }
             }
 
@@ -52,17 +143,65 @@ data class Message(val author: String, val message: String)
 @Preview(name = "Light Mode")
 @Preview(name = "Dark Mode", uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
 @Composable
-fun MessageCardPreview(){
-    ComposeRefresherTheme{
+fun MessageCardPreview() {
+    ComposeRefresherTheme {
         Surface {
-            MessageCard(message= Message(author = "Ben Salcie", message = "You are the new Author"))
+            Conversation(
+                messages = arrayListOf(
+                    Message(
+                        author = "Ben Salcie",
+                        message = "You are the new Author"
+                    ),
+                    Message(
+                        author = "Charity Muia",
+                        message = "You are the new Boy Friend"
+                    ),
+                    Message(
+                        author = "Juliana Kenya",
+                        message = "You are the new Boy Artist"
+                    ),
+                    Message(
+                        author = "Juliana Kenya",
+                        message = "You are the new Boy Artist"
+                    ),
+                    Message(
+                        author = "Juliana Kenya",
+                        message = "You are the new Boy Artist"
+                    ),
+                    Message(
+                        author = "Juliana Kenya",
+                        message = "You are the new Boy Artist"
+                    ),
+                    Message(
+                        author = "Juliana Kenya",
+                        message = "You are the new Boy Artist"
+                    ),
+                    Message(
+                        author = "Juliana Kenya",
+                        message = "You are the new Boy Artist"
+                    ),
+                    Message(
+                        author = "Juliana Kenya",
+                        message = "You are the new Boy Artist"
+                    )
+
+
+                )
+            )
+
+//            MessageCard(
+//                message = Message(
+//                    author = "Ben Salcie",
+//                    message = "You are the new Author"
+//                )
+//            )
         }
     }
 }
 
 @Composable
 fun MessageCard(message: Message) {
-    Row (modifier = Modifier.padding(all = 5.dp)){
+    Row(modifier = Modifier.padding(all = 5.dp)) {
         androidx.compose.foundation.Image(
             painter = painterResource(R.drawable.ben),
             contentDescription = "Author Image",
@@ -74,7 +213,11 @@ fun MessageCard(message: Message) {
         )
         Spacer(modifier = Modifier.width(10.dp))
         Column {
-            Text(text = message.author, color = MaterialTheme.colorScheme.secondary, style = MaterialTheme.typography.titleSmall)
+            Text(
+                text = message.author,
+                color = MaterialTheme.colorScheme.secondary,
+                style = MaterialTheme.typography.titleSmall
+            )
             Spacer(modifier = Modifier.height(4.dp))
             Surface(shape = MaterialTheme.shapes.medium, shadowElevation = 1.dp) {
                 Text(
@@ -88,3 +231,16 @@ fun MessageCard(message: Message) {
 }
 
 
+@Composable
+fun Conversation(messages: List<Message>) {
+    LazyColumn {
+        items(
+            messages.size,
+            itemContent = { index ->
+                MessageCard(message = messages[index])
+            },
+        )
+    }
+
+
+}
