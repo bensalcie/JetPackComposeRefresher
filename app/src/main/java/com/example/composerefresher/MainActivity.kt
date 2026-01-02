@@ -201,6 +201,7 @@ fun MessageCardPreview() {
 
 @Composable
 fun MessageCard(message: Message) {
+    
     Row(modifier = Modifier.padding(all = 5.dp)) {
         androidx.compose.foundation.Image(
             painter = painterResource(R.drawable.ben),
