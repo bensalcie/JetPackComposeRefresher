@@ -31,6 +31,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composerefresher.ui.theme.ComposeRefresherTheme
+import com.example.composerefresher.ui.theme.lessons.MyApp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,97 +40,98 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeRefresherTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    Conversation(
-                        messages = arrayListOf(
-                            Message(
-                                author = "Ben Salcie",
-                                message = "You are the new Author"
-                            ),
-                            Message(
-                                author = "Charity Muia",
-                                message = "You are the new Boy Friend"
-                            ),
-                            Message(
-                                author = "Juliana Kenya",
-                                message = "You are the new Boy Artist"
-                            ),
-                            Message(
-                                author = "Juliana Kenya",
-                                message = "You are the new Boy Artist"
-                            ),
-                            Message(
-                                author = "Juliana Kenya",
-                                message = "You are the new Boy Artist"
-                            ),
-                            Message(
-                                author = "Juliana Kenya",
-                                message = "You are the new Boy Artist"
-                            ),
-                            Message(
-                                author = "Juliana Kenya",
-                                message = "You are the new Boy Artist"
-                            ),
-                            Message(
-                                author = "Juliana Kenya",
-                                message = "You are the new Boy Artist"
-                            ),
-                            Message(
-                                author = "Juliana Kenya",
-                                message = "You are the new Boy Artist"
-                            ),
-                            Message(
-                                author = "Juliana Kenya",
-                                message = "You are the new Boy Artist"
-                            )
-                            ,
-                            Message(
-                                author = "Juliana Kenya",
-                                message = "You are the new Boy Artist"
-                            )
-                            ,
-                            Message(
-                                author = "Juliana Kenya",
-                                message = "You are the new Boy Artist"
-                            )
-                            ,
-                            Message(
-                                author = "Juliana Kenya",
-                                message = "You are the new Boy Artist"
-                            )
-                            ,
-                            Message(
-                                author = "Juliana Kenya",
-                                message = "You are the new Boy Artist"
-                            )
-                            ,
-                            Message(
-                                author = "Juliana Kenya",
-                                message = "You are the new Boy Artist"
-                            )
-                            ,
-                            Message(
-                                author = "Juliana Kenya",
-                                message = "You are the new Boy Artist"
-                            )
-                            ,
-                            Message(
-                                author = "Juliana Kenya",
-                                message = "You are the new Boy Artist"
-                            )
-                            ,
-                            Message(
-                                author = "Juliana Kenya",
-                                message = "You are the new Boy Artist"
-                            ),
-                            Message(
-                                author = "Juliana Kenya",
-                                message = "You are the new Boy Artist"
-                            )
-
-
-
-                        )
-                    )
+                    MyApp()
+//                    Conversation(
+//                        messages = arrayListOf(
+//                            Message(
+//                                author = "Ben Salcie",
+//                                message = "You are the new Author"
+//                            ),
+//                            Message(
+//                                author = "Charity Muia",
+//                                message = "You are the new Boy Friend"
+//                            ),
+//                            Message(
+//                                author = "Juliana Kenya",
+//                                message = "You are the new Boy Artist"
+//                            ),
+//                            Message(
+//                                author = "Juliana Kenya",
+//                                message = "You are the new Boy Artist"
+//                            ),
+//                            Message(
+//                                author = "Juliana Kenya",
+//                                message = "You are the new Boy Artist"
+//                            ),
+//                            Message(
+//                                author = "Juliana Kenya",
+//                                message = "You are the new Boy Artist"
+//                            ),
+//                            Message(
+//                                author = "Juliana Kenya",
+//                                message = "You are the new Boy Artist"
+//                            ),
+//                            Message(
+//                                author = "Juliana Kenya",
+//                                message = "You are the new Boy Artist"
+//                            ),
+//                            Message(
+//                                author = "Juliana Kenya",
+//                                message = "You are the new Boy Artist"
+//                            ),
+//                            Message(
+//                                author = "Juliana Kenya",
+//                                message = "You are the new Boy Artist"
+//                            )
+//                            ,
+//                            Message(
+//                                author = "Juliana Kenya",
+//                                message = "You are the new Boy Artist"
+//                            )
+//                            ,
+//                            Message(
+//                                author = "Juliana Kenya",
+//                                message = "You are the new Boy Artist"
+//                            )
+//                            ,
+//                            Message(
+//                                author = "Juliana Kenya",
+//                                message = "You are the new Boy Artist"
+//                            )
+//                            ,
+//                            Message(
+//                                author = "Juliana Kenya",
+//                                message = "You are the new Boy Artist"
+//                            )
+//                            ,
+//                            Message(
+//                                author = "Juliana Kenya",
+//                                message = "You are the new Boy Artist"
+//                            )
+//                            ,
+//                            Message(
+//                                author = "Juliana Kenya",
+//                                message = "You are the new Boy Artist"
+//                            )
+//                            ,
+//                            Message(
+//                                author = "Juliana Kenya",
+//                                message = "You are the new Boy Artist"
+//                            )
+//                            ,
+//                            Message(
+//                                author = "Juliana Kenya",
+//                                message = "You are the new Boy Artist"
+//                            ),
+//                            Message(
+//                                author = "Juliana Kenya",
+//                                message = "You are the new Boy Artist"
+//                            )
+//
+//
+//
+//                        )
+//                    )
                 }
             }
 
@@ -201,7 +203,7 @@ fun MessageCardPreview() {
 
 @Composable
 fun MessageCard(message: Message) {
-    
+
     Row(modifier = Modifier.padding(all = 5.dp)) {
         androidx.compose.foundation.Image(
             painter = painterResource(R.drawable.ben),

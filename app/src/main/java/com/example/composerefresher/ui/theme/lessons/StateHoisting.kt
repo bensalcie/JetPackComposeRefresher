@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,11 +27,15 @@ import androidx.compose.ui.unit.dp
  *
  */
 
-/** [MyApp]  `shouldShowOnBoarding`  is the Hoisted State **/
+/** [MyApp]  `shouldShowOnBoarding`  is the Hoisted State
+ * `rememberSaveable` This will save each state surviving configuration
+ * changes (such as rotations) and process death.
+ *
+ * **/
 
 @Composable
 fun MyApp(modifier: Modifier = Modifier.fillMaxSize()) {
-    var shouldShowOnBoarding by remember {
+    var shouldShowOnBoarding by rememberSaveable {
         mutableStateOf(true)
     }
     Surface(modifier) {
@@ -45,7 +50,7 @@ fun MyApp(modifier: Modifier = Modifier.fillMaxSize()) {
 @Composable
 fun Greetings(modifier: Modifier = Modifier, names: List<String> = List(1000) { "$it" }) {
     LazyColumn(modifier.padding(vertical = 4.dp)) {
-        items(names.size,) { index ->
+        items(names.size) { index ->
             Greeting(names[index])
         }
     }
