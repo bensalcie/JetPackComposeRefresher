@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -42,13 +43,18 @@ fun MyApp(modifier: Modifier = Modifier.fillMaxSize()) {
 }
 
 @Composable
-fun Greetings(modifier: Modifier = Modifier, names: List<String> = listOf("World", "Compose")) {
-    Column(modifier.padding(vertical = 4.dp)) {
-        for (name in names) {
-            Greeting(name)
+fun Greetings(modifier: Modifier = Modifier, names: List<String> = List(1000) { "$it" }) {
+    LazyColumn(modifier.padding(vertical = 4.dp)) {
+        items(names.size,) { index ->
+            Greeting(names[index])
         }
-
     }
+//    Column(modifier.padding(vertical = 4.dp)) {
+//        for (name in names) {
+//            Greeting(name)
+//        }
+//
+//    }
 
 }
 
