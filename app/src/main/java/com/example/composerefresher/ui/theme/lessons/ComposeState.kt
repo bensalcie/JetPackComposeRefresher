@@ -1,5 +1,8 @@
 package com.example.composerefresher.ui.theme.lessons
 
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -26,6 +29,14 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun Greeting(name: String) {
     var isExpanded by rememberSaveable { mutableStateOf(false) }
+
+    val extraPadding by animateDpAsState(
+        if (isExpanded) 48.dp else 0.dp,
+                animationSpec = spring(
+                dampingRatio = Spring.DampingRatioMediumBouncy,
+        stiffness = Spring.StiffnessLow
+    )
+    )
     Surface(
         color = MaterialTheme.colorScheme.surface,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
@@ -33,7 +44,7 @@ fun Greeting(name: String) {
         Row(
             modifier = Modifier
                 .padding(24.dp)
-                .padding(bottom = if (isExpanded) 48.dp else 0.dp)
+                .padding(bottom = extraPadding.coerceAtLeast(0.dp))
         ) {
             Column(modifier = Modifier.weight(1f)) {
                 Text("Hello")
